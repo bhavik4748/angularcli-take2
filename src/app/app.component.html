@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Test Portal</h1>
+<nav>
+  <a [routerLink]="['/dashBoard']">Dashboard</a>
+  <a [routerLink]="['/portal']">Portal</a>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,13 @@
+<ul class="nav nav-pills nav-justified border">
+  <li><a routerLink="planWork" routerLinkActive="active">Plan Work</a></li>
+  <li><a routerLink="scopeOfWork" routerLinkActive="active">Scope of Work</a></li>
+  <li><a routerLink="costAffidavit" routerLinkActive="active">Cost Affidavit</a></li>
+  <li><a routerLink="statementAndSignature" routerLinkActive="active">Statement And Signature</a></li>
+</ul>
+<div class="col-md-8">
+  <!---  <app-planWork></app-planWork>  -->
+  <router-outlet> </router-outlet>
+</div>
+<div class="col-md-4">
+  <app-status></app-status>
+</div>
