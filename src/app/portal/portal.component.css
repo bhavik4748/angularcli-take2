@@ -2,3 +2,12 @@ ul li a.active {
   color: white;
   background-color: gray
 }
+/*
+ul li  {
+  color: white;
+  background-color: black;
+}
+
+// static header
+#navbutton{ padding-top: 50px; }
+*/

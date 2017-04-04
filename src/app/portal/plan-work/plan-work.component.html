@@ -1,3 +1,280 @@
-<p>
-  plan-work works!
-</p>
+<div ng-form="frmplanWorkAC" id="frmPlanWorkAC">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 pad-none" id="section1PlanWorkAC">
+      <div class="col-xs-12 col-sm-12 col-md-12"><strong><span>1. Location Information</span></strong></div>
+      <div class="divline col-xs-12 col-sm-12 col-md-12">&nbsp;</div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"><span>House No.(s) </span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWLocHouseNo" name="txtPWLocHouseNo" maxlength="20" ng-model="jobFilingObj.HouseNo" allow-only-english-characters
+          capitalize required />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Street Name</span> <span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWLocStreetName" name="txtPWLocStreetName" ng-model="jobFilingObj.StreetName" allow-only-english-characters
+          capitalize required />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"><span>Borough</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <select type="text" id="ddlPWLocBoroughNYC" name="ddlPWLocBoroughNYC" ng-model="jobFilingObj.BoroughNYC" required>
+                    <option value="">select Borough</option>
+                    <option value="1">Manhattan</option>
+                    <option value="3">Brooklyn</option>
+                    <option value="4">Queens</option>
+                    <option value="2">Bronx</option>
+                    <option value="5">Staten Island</option>
+                </select>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Block</span><span class="requiredfield">*</span> </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWLocBlock" name="txtPWLocBlock" ng-model="jobFilingObj.Block" maxlength="5" valid-number required
+        />
+        <span class="errorMessage" ng-show="frmplanWork.txtPWLocBlock.$dirty && !jobFilingObj.Block">
+                    Only numbers are allowed.
+                </span>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Lot</span> <span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWLocLot" name="txtPWLocLot" ng-model="jobFilingObj.Lot" valid-number maxlength="10" required />
+        <span class="errorMessage" ng-show="frmplanWork.txtPWLocLot.$dirty && !jobFilingObj.Lot">
+                    Only numbers are allowed.
+                </span>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>BIN</span><span class="requiredfield">*</span> </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWLocBin" name="txtPWLocBin" ng-model="jobFilingObj.Bin" disabled required />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>C.B. No.</span> <span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWLocCBNo" name="txtPWLocCBNo" ng-model="jobFilingObj.CBNo" disabled required />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Zip Code</span><span class="requiredfield">*</span> </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWLocZip" name="txtPWLocZip" capitalize ng-model="jobFilingObj.Zip" disabled />
+      </div>
+
+      <div ng-if="!jobFilingObj.AntennaFilingWorktype && !jobFilingObj.CurbCutFilingWorktype">
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Apt./Condo. No.(s)</span> </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+          <input type="text" id="txtPWLocAptCondoNo" name="txtPWLocAptCondoNo" ng-model="jobFilingObj.AptCondonos" maxlength="30" allow-only-english-characters
+            capitalize />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Work on Floor(s)</span><span class="requiredfield">*</span> </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+          <input type="text" id="txtPWLocWorkFloor" name="txtPWLocWorkFloor" ng-model="jobFilingObj.WorkonFloors" maxlength="30" allow-only-english-characters
+            capitalize required />
+        </div>
+      </div>
+
+
+
+      <div ng-if="jobFilingObj.AntennaFilingWorktype && !jobFilingObj.CurbCutFilingWorktype">
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Code & Description</span><span class="requiredfield">*</span> </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+          <select type="text" id="ddlPWCodeDescription" name="ddlPWCodeDescription" ng-model="jobFilingObj.CodeDescription" required>
+                        <option value="">select Borough</option>
+                        <option value="1">	ATT Attic	</option>
+                        <option value="2">	BAS Basement	</option>
+                        <option value="3">	BAL Balcony	</option>
+                        <option value="4">	CEL Cellar	</option>
+                        <option value="5">	MZ1* Mezzanine between 1 & 2 floors	</option>
+                        <option value="6">	MEZ Building with only one mezzanine	</option>
+                        <option value="7">	PEN Penthouse	</option>
+                        <option value="8">	ROF Roof	</option>
+                        <option value="9">	SUB  Sub-Cellar	</option>
+                        <option value="10">	SC1 Sub-cellar #1 (SC2 = #2, SC3 = #3)	</option>
+                        <option value="11">	TOW Tower	</option>
+                        <option value="12">	From 	</option>
+
+                    </select>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Floor Number</span> </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+          <input type="text" id="txtPWFloorNumber" name="txtPWFloorNumber" ng-model="jobFilingObj.FloorNumber" maxlength="30" allow-only-english-characters
+            capitalize required/>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Floor Description</span><span class="requiredfield">*</span> </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+          <input type="text" id="txtPWFloorDescription" name="txtPWFloorDescription" ng-model="jobFilingObj.FloorDescription" maxlength="30"
+            allow-only-english-characters capitalize required />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Apt./Condo. No.(s)</span> </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+          <input type="text" id="txtPWLocAptCondoNo" name="txtPWLocAptCondoNo" ng-model="jobFilingObj.AptCondonos" maxlength="30" allow-only-english-characters
+            capitalize />
+        </div>
+      </div>
+      <div ng-if="jobFilingObj.CurbCutFilingWorktype && !jobFilingObj.AntennaFilingWorktype">
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Work on Floor(s)</span><span class="requiredfield">*</span> </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+          <input type="text" id="txtPWLocWorkFloor" name="txtPWLocWorkFloor" ng-init="OG - On Grade" maxlength="30" allow-only-english-characters
+            capitalize required />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Apt./Condo. No.(s)</span> </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+          <input type="text" id="txtPWLocAptCondoNo" name="txtPWLocAptCondoNo" ng-model="jobFilingObj.AptCondonos" maxlength="30" allow-only-english-characters
+            capitalize />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">&nbsp;</div>
+
+    <div id="section2PlanWorkAC" class="col-xs-12 col-sm-12 col-md-12 pad-none">
+      <div class="col-xs-12 col-sm-12 col-md-12"><strong><span>2. Applicant Information</span></strong></div>
+      <div class="divline col-xs-12 col-sm-12 col-md-12">&nbsp;</div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"><span>E-Mail</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="email" id="txtPWAppEmail2" name="txtPWAppEmail2" placeholder="Enter email/username..." ng-model="jobFilingObj.ApplicantPersonDetails.Email"
+          typeahead-min-length="5" typeahead-on-select="setContactInfo($item)" uib-typeahead="user.Email for user in users($viewValue)"
+          required />
+      </div>
+      <div ng-show="false">
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>DOB Issued ID#</span><span class="requiredfield"></span> </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+          <input type="text" id="txtPWAppDOB" ng-model="jobFilingObj.ApplicantPersonDetails.DobIssuedId" name="txtPWAppDOB" />
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>License Type</span><span class="requiredfield">*</span></div>
+
+
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <select id="txtPWAppLicType" name="txtPWAppLicType" ng-model="jobFilingObj.LicenseLookUpDetails" ng-options="item.LicenseDescription for item in jobFilingObj.licenseeList track by item.LicenseeGuid"
+          required></select>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>License Number</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppLicNum" name="txtPWAppLicNum" ng-model="jobFilingObj.LicenseLookUpDetails.LicenseNumber" disabled
+        />
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Last Name</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppLastName" name="txtPWAppLastName" ng-model="jobFilingObj.ApplicantPersonDetails.LastName"
+          disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>First Name</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppFirstName" name="txtPWAppFirstName" ng-model="jobFilingObj.ApplicantPersonDetails.FirstName"
+          disabled required />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Middle Initial</span> </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppMiddleName" name="txtPWAppMiddleName" ng-model="jobFilingObj.ApplicantPersonDetails.MiddleName"
+          disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Business Name</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppBusinessName" name="txtPWAppBusinessName" ng-model="jobFilingObj.ApplicantPersonDetails.BusinessName"
+          maxlength="50" allow-only-english-characters required />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Business Telephone</span> <span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppBusinessTelephone" name="txtPWAppBusinessTelephone" ng-model="jobFilingObj.ApplicantPersonDetails.BusinessTelephone"
+          disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Business Address</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppBusinessAddress" name="txtPWAppBusinessAddress" ng-model="jobFilingObj.ApplicantPersonDetails.BusinessAddress"
+          disabled required />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Business Fax</span> </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppBusinessFax" ng-model="jobFilingObj.ApplicantPersonDetails.BusinessFax" disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>City</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppCity" name="txtPWAppCity" ng-model="jobFilingObj.ApplicantPersonDetails.City" disabled required
+        />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>State</span><span class="requiredfield">*</span> </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppState" name="txtPWAppState" ng-model="jobFilingObj.ApplicantPersonDetails.State" disabled
+          required />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Zip Code</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppZip" name="txtPWAppZip" ng-model="jobFilingObj.ApplicantPersonDetails.Zip" disabled required
+        />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Mobile Telephone</span><span class="requiredfield">*</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWAppMobileTelephone" name="txtPWAppMobileTelephone" ng-model="jobFilingObj.ApplicantPersonDetails.BusinessTelephone"
+          disabled />
+      </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">&nbsp;</div>
+
+    <div id="section3PlanWorkAC" class="col-xs-12 col-sm-12 col-md-12 pad-none">
+      <div class="col-xs-12 col-sm-12 col-md-12"><strong><span>3. Filing Representative</span></strong></div>
+      <div class="divline col-xs-12 col-sm-12 col-md-12">&nbsp;</div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"><span>E-Mail </span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="email" id="txtPWFRepEmail" name="txtPWFRepEmail" placeholder="Enter email/username..." ng-model="jobFilingObj.FilingRepresentativeData.Email"
+          typeahead-on-select="setFRInfo($item)" ng-change="ClearFRInfor()" typeahead-min-length="5" uib-typeahead="user.Email for user in users($viewValue)"
+        />
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Registration Number</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepRegNo" name="txtPWFRepRegNo" ng-model="jobFilingObj.FilingRepresentativeData.RegistrationNumber"
+          disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"><span>First Name </span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepFName" name="txtPWFRepFName" ng-model="jobFilingObj.FilingRepresentativeData.FirstName" disabled
+        />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Middle Initial</span> </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepMName" name="txtPWFRepMName" ng-model="jobFilingObj.FilingRepresentativeData.MiddleName"
+          disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"><span>Last Name</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepLName" name="txtPWFRepLName" ng-model="jobFilingObj.FilingRepresentativeData.LastName" disabled
+        />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Business Name</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepBusinessName" name="txtPWFRepBusinessName" maxlength="100" ng-model="jobFilingObj.FilingRepresentativeData.BusinessName"
+          allow-only-english-characters />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Business Telephone</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepBusinessTelephone" name="txtPWFRepBusinessTelephone" ng-model="jobFilingObj.FilingRepresentativeData.BusinessTelephone"
+          disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Business Address</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepBusinessAddress" name="txtPWFRepBusinessAddress" ng-model="jobFilingObj.FilingRepresentativeData.BusinessAddress"
+          disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Business Fax</span> </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepBusinessFax" name="txtPWFRepBusinessFax" ng-model="jobFilingObj.FilingRepresentativeData.BusinessFax"
+          disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>City</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepCity" name="txtPWFRepCity" ng-model="jobFilingObj.FilingRepresentativeData.City" disabled
+        />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>State</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepState" name="txtPWFRepState" ng-model="jobFilingObj.FilingRepresentativeData.State" disabled
+        />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Zip Code</span></div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepZip" name="txtPWFRepZip" ng-model="jobFilingObj.FilingRepresentativeData.Zip" disabled />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px portal-fonts"> <span>Mobile Telephone</span> </div>
+      <div class="col-xs-6 col-sm-6 col-md-3 height50px">
+        <input type="text" id="txtPWFRepMobileTelephone" name="txtPWFRepMobileTelephone" ng-model="jobFilingObj.FilingRepresentativeData.MobileTelephone"
+          disabled />
+      </div>
+    </div>
+
+  </div>
+</div>
