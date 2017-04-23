@@ -30,8 +30,9 @@ const appRoutes: Routes = [
       { path: 'statementAndSignature', component: StatementSignatureComponent }
     ]
   },
-  { path: '', redirectTo: 'portal.planWork', pathMatch: 'full' },
-  { path: '**', redirectTo: 'portal.planWork', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
+ // { path: '**', redirectTo: 'portal/planWork', pathMatch: 'full' }
 ];
 
 
