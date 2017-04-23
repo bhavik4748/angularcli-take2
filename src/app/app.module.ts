@@ -13,11 +13,13 @@ import { AppStatusComponent } from './portal/app-status/app-status.component';
 import { CostAffidavitComponent } from './portal/cost-affidavit/cost-affidavit.component';
 import { StatementSignatureComponent } from './portal/statement-signature/statement-signature.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 
 const appRoutes: Routes = [
   // { path: 'portal', component: PortalComponent },
   //{ path: 'app', component: AppComponent , outlet:'r1'},
+  { path: 'login', component: LoginComponent },
   { path: 'dashBoard', component: DashboardComponent },
   {
     path: 'portal', component: PortalComponent, children: [
@@ -28,8 +30,8 @@ const appRoutes: Routes = [
       { path: 'statementAndSignature', component: StatementSignatureComponent }
     ]
   },
-  { path: '', redirectTo: 'dashBoard', pathMatch: 'full' },
-  { path: '**', redirectTo: 'dashBoard', pathMatch: 'full' }
+  { path: '', redirectTo: 'portal.planWork', pathMatch: 'full' },
+  { path: '**', redirectTo: 'portal.planWork', pathMatch: 'full' }
 ];
 
 
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     AppStatusComponent,
     CostAffidavitComponent,
     StatementSignatureComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
